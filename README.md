@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Flight Schedule Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A flight schedule management dashboard built with **React + TypeScript + Material UI**.
 
-Currently, two official plugins are available:
+This application allows users to manage flight schedules with filtering, editing, status toggling, selection, and deletion features in a performant virtualized table.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View flight schedules in a virtualized table
+- Edit flight details inline
+- Toggle flight status (Active / Inactive)
+- Delete single flight
+- Select and delete multiple flights
+- Search flights
+- Filter flights with AND logic:
+  - Date range
+  - Days of operation
+  - Status
+  - AOC
+  - Body type
+- Clear all filters
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React**
+- **TypeScript**
+- **Vite**
+- **Material UI (MUI)**
+- **react-window** (table virtualization)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Setup
+
+### 1. Clone repository
+
+```bash
+git clone <repository-url>
+cd <project-folder>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Use `--legacy-peer-deps` because `react-window` has peer dependency conflicts with newer React versions.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install --legacy-peer-deps
 ```
+
+### 3. Run development server
+
+```bash
+npm run dev
+```
+
+Application runs on:
+
+```bash
+http://localhost:5173
+```
+
+## Notes
+
+- Table uses virtualization for performance with large datasets
+- Only one row can be edited at a time
+- All filters work together using AND logic
