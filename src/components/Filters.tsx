@@ -30,7 +30,12 @@ export default function Filters({ search, setSearch, filters, setFilters }) {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr 1fr 0.8fr 1fr 1fr auto",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "1.4fr 1fr 1fr 1fr 0.8fr 1fr 1fr auto",
+          },
           gap: 2,
           mb: 8,
           alignItems: "center",
@@ -79,7 +84,7 @@ export default function Filters({ search, setSearch, filters, setFilters }) {
           }}
         />
 
-        <FormControl size="small" sx={{ minWidth: 140 }}>
+        <FormControl size="small" sx={{ minWidth: "100%" }}>
           <InputLabel>Status</InputLabel>
           <Select
             size="small"
@@ -98,7 +103,7 @@ export default function Filters({ search, setSearch, filters, setFilters }) {
           </Select>
         </FormControl>
 
-        <FormControl size="small" sx={{ minWidth: 140 }}>
+        <FormControl size="small" sx={{ minWidth: "100%" }}>
           <InputLabel>AOC</InputLabel>
           <Select
             size="small"
@@ -119,7 +124,7 @@ export default function Filters({ search, setSearch, filters, setFilters }) {
           </Select>
         </FormControl>
 
-        <FormControl size="small" sx={{ minWidth: 160 }}>
+        <FormControl size="small" sx={{ minWidth: "100%" }}>
           <InputLabel>Body Type</InputLabel>
           <Select
             size="small"
@@ -138,7 +143,7 @@ export default function Filters({ search, setSearch, filters, setFilters }) {
           </Select>
         </FormControl>
 
-        <FormControl size="small" sx={{ minWidth: 180 }}>
+        <FormControl size="small" sx={{ minWidth: "100%" }}>
           <InputLabel>Days</InputLabel>
           <Select
             multiple

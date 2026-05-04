@@ -76,7 +76,10 @@ export default function EditableRow({ index, style, data }) {
       }}
     >
       <Checkbox
-        sx={{ padding: 0 }}
+        sx={{ 
+          p: 1,
+          justifySelf: "center",
+         }}
         checked={isSelected}
         onChange={() => {
           setSelectedIds((prev: string[]) =>

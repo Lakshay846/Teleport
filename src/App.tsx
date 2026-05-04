@@ -4,7 +4,7 @@ import type { Flight } from "./types/flight";
 import FlightTable from "./components/FlightTable";
 import Filters from "./components/Filters";
 import { Box, Typography, Paper, Icon } from "@mui/material";
-import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
+import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
 
 function App() {
   const [flights, setFlights] = useState<Flight[]>([]);
@@ -63,7 +63,10 @@ function App() {
       sx={{
         minHeight: "100vh",
         backgroundColor: "#f8fafc",
-        p: 4,
+        p: {
+          xs: 2,
+          md: 4,
+        },
       }}
     >
       <Box
@@ -87,17 +90,18 @@ function App() {
               <AirplanemodeActiveIcon />
             </Icon>
           </Typography>
-  
+
           <Typography
             variant="body2"
             sx={{
               color: "#64748b",
             }}
           >
-            Manage flight schedules, operational dates, filters, and status updates
+            Manage flight schedules, operational dates, filters, and status
+            updates
           </Typography>
         </Box>
-  
+
         {/* Main content */}
         <Paper
           elevation={1}
@@ -114,11 +118,7 @@ function App() {
             filters={filters}
             setFilters={setFilters}
           />
-  
-          <FlightTable
-            flights={filteredFlights}
-            setFlights={setFlights}
-          />
+            <FlightTable flights={filteredFlights} setFlights={setFlights} />
         </Paper>
       </Box>
     </Box>

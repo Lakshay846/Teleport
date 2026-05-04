@@ -15,7 +15,13 @@ export default function FlightTable({ flights, setFlights }: Props) {
 
   return (
     <Box>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          mb: 2,
+        }}
+      >
         <Button
           variant="contained"
           color="error"
@@ -30,6 +36,13 @@ export default function FlightTable({ flights, setFlights }: Props) {
           Delete Selected ({selectedIds.length})
         </Button>
       </Box>
+      <Box sx={{ width: "100%", overflowX: "auto" }}>
+      <Box
+  sx={{
+    minWidth: 1280,
+    width: "100%",
+  }}
+>
       <Box
         sx={{
           display: "grid",
@@ -37,15 +50,18 @@ export default function FlightTable({ flights, setFlights }: Props) {
             "40px 90px 70px 90px 120px 70px 70px 210px 120px 170px 130px 100px",
           alignItems: "center",
           fontWeight: 600,
-          p: 2,
+          py: 2,
+          px: 2,
           borderBottom: "1px solid #ddd",
           backgroundColor: "#f5f5f5",
-          fontSize: 14,
-          overflowX: "hidden",
+          fontSize: 14
         }}
       >
         <Checkbox
-          sx={{ padding: 0 }}
+          sx={{ 
+            p: 1,
+            justifySelf: "center",
+           }}
           checked={flights.length > 0 && selectedIds.length === flights.length}
           indeterminate={
             selectedIds.length > 0 && selectedIds.length < flights.length
@@ -72,7 +88,7 @@ export default function FlightTable({ flights, setFlights }: Props) {
         height={600}
         itemCount={flights.length}
         itemSize={70}
-        width="100%"
+        width={"100%"}
         itemData={{
           flights,
           setFlights,
@@ -84,10 +100,13 @@ export default function FlightTable({ flights, setFlights }: Props) {
         itemKey={(index, data) => data.flights[index].id}
         style={{
           overflowX: "hidden",
+          overflowY: "auto",
         }}
       >
         {EditableRow}
       </List>
+      </Box>
+    </Box>
     </Box>
   );
 }
